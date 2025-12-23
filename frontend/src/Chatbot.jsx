@@ -17,7 +17,8 @@ const Chatbot = () => {
     const chatMessagesRef = useRef(null);
     const [showQuickReplies, setShowQuickReplies] = useState(true);
     
-    const API_URL = 'http://localhost:5000/api/chat';
+    const API_URL = '/api/chat';
+
     const [connected, setConnected] = useState(true);
 
     // Scroll automático melhorado
@@ -58,7 +59,7 @@ const Chatbot = () => {
     useEffect(() => {
         const checkConnection = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/health');
+                const response = await fetch('/api');
                 if (response.ok) setConnected(true);
             } catch (error) {
                 console.log('Backend offline');
